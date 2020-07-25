@@ -11,6 +11,7 @@ const sessionClient = new dialogflow.SessionsClient({
 });
 
 async function sendMessage(chatId, message){
+
     const sessionPath = sessionClient.sessionPath(configs.project_id, chatId);
     const request = {
         session: sessionPath,
@@ -28,6 +29,7 @@ async function sendMessage(chatId, message){
         text: result.fulfillmentText,
         intent: result.intent.displayName,
         fields: result.parameters.fields
+        
     };
 };
 

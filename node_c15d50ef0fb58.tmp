@@ -19,8 +19,8 @@ bot.help((ctx) =>{
 bot.on('message', async function(ctx) {
   const chatId = ctx.message.chat.id;
 
-  const dfresponse = await dialogFlow.sendMessage(chatId.toString(), ctx.message);
-  console.log(ctx.message);
+  const dfresponse = await dialogFlow.sendMessage(chatId.toString(), ctx.message.text);
+
   ctx.reply(dfresponse.text);
 
 });
