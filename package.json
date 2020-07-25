@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/Duduxs/bot-telegram#readme",
   "dependencies": {
+    "dialogflow": "^1.2.0",
     "telegraf": "^3.38.0"
   }
 }
