@@ -1,10 +1,10 @@
-// API Config
+// API config
 const dialogflow = require('dialogflow');
-const configs = require('./edu-bot-telegram-pwfw-0244018bb10d');
+const configs = require('./edu-bot-telegram-pwfw-f57d823d5aeb.json');
 
 const sessionClient = new dialogflow.SessionsClient({
     projectId: configs.project_id,
-    credentials:{
+    credentials: {
         private_key: configs.private_key,
         client_email: configs.client_email
     }
@@ -14,8 +14,8 @@ async function sendMessage(chatId, message){
     const sessionPath = sessionClient.sessionPath(configs.project_id, chatId);
     const request = {
         session: sessionPath,
-        queryInput:{
-            text:{
+        queryInput: {
+            text: {
                 text: message,
                 languageCode: 'pt-BR'
             }
@@ -24,12 +24,14 @@ async function sendMessage(chatId, message){
 
     const responses = await sessionClient.detectIntent(request);
     const result = responses[0].queryResult;
-    
-    return{
+
+    return {
         text: result.fulfillmentText,
         intent: result.intent.displayName,
         fields: result.parameters.fields
+        
     };
 };
+
 
 module.exports.sendMessage = sendMessage;
