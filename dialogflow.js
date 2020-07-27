@@ -24,6 +24,7 @@ async function sendMessage(chatId, message){
 
     const responses = await sessionClient.detectIntent(request);
     const result = responses[0].queryResult;
+  
 
     return {
         text: result.fulfillmentText,
@@ -32,6 +33,8 @@ async function sendMessage(chatId, message){
         
     };
 };
+
+
 
 
 module.exports.sendMessage = sendMessage;
