@@ -25,7 +25,6 @@ bot.on(['sticker'], (ctx) =>{ ctx.reply('Hahaha que massa 😆')});
 bot.on('message', async function (ctx) {
   const chatId = ctx.message.chat.id;
   const dfResponse = await dialogflow.sendMessage(chatId.toString(), ctx.message.text);
-  console.log(ctx.message);
   ctx.reply(dfResponse.text);
 
 });
